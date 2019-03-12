@@ -7,8 +7,34 @@
   </div>
 
   <div *ngIf="!loggedUser" class="screen">
-    <p class="font-weight-light">Please Login.</p>
-    <input [(ngModel)]="username" style="height: 50px" id="user" placeholder="username">
-    <button class="btn btn-primary" (click)="login()" [routerLink]="[ '/login' ]">Login</button>
+    <div class="container">
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <div class="form-group">
+          <label for="email"><span class="font-weight-light">Email</span></label>
+          <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel"
+            [ngClass]="{ 'is-invalid': email.touched && email.invalid }" required email />
+          <div *ngIf="email.touched && email.invalid" class="invalid-feedback">
+            <div *ngIf="email.errors.required">Email is required</div>
+            <div *ngIf="email.errors.email">Email must be a valid email address</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password"><span class="font-weight-light">Password</span></label>
+          <input type="password" class="form-control mb-3" name="password" [(ngModel)]="model.password"
+            #password="ngModel" [ngClass]="{ 'is-invalid': password.touched && password.invalid }" required
+            minlength="10" />
+          <div *ngIf="password.touched && password.invalid" class="invalid-feedback">
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">Password must be at least 10 characters</div>
+          </div>
+          <button type="submit" class="btn btn-success mr-2"><span
+              class="font-weight-light">Login</span></button><button type="button" class="btn btn-secondary"
+            disabled><span class="font-weight-light">Create new user</span></button>
+        </div>
+      </form>
+      <div *ngIf="showDiv" class="alert alert-danger" role="alert">
+        <h6>Invalid Login Credentials</h6>
+        <span class="small">Password/username must be valid.</span>
+      </div>
+    </div>
   </div>
-</div>

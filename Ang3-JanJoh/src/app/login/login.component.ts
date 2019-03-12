@@ -7,9 +7,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+// LoginComponent...
+// 1) Validates email/password entered by user.
+// 2) Fires off methods that log user in and out by using authService.
+
 export class LoginComponent implements OnInit {
 
-  username: string;
+  email: string;
   loggedUser: string;
 
   constructor(
@@ -29,7 +34,7 @@ export class LoginComponent implements OnInit {
 
   // Uses authService function for user login and redirects to dashboard.
   login(): void {
-    this.authService.login(this.username);
+    this.authService.login(this.model.email);
     this.router.navigate(['/dashboard']);
 
   }
@@ -42,6 +47,39 @@ export class LoginComponent implements OnInit {
   // Uses authService function to check if user is logged in
   checklog(): void {
     this.loggedUser = this.authService.checkIfLoggedIn();
+  }
+
+  // Sets model object to any.
+  model: any = {};
+
+
+  // Validates login on form submit.
+  onSubmit() {
+    this.validateLogin();
+  }
+
+
+  // Validates login password and email based on the psuedo backend in authService.
+  // If BOTH login/email matches authService, the login() method fires.
+  // If login/email doesn't match, user is rerouted to login and a invalid message is shown.
+
+  showDiv: boolean = false;
+
+  validateLogin(): void {
+    const johnEmail = this.authService.admins[0].email;
+    const johnPassword = this.authService.admins[0].password;
+
+    const kylieEmail = this.authService.admins[1].email;
+    const kyliePassword = this.authService.admins[1].password;
+
+    if (this.model.email == johnEmail && this.model.password == johnPassword) {
+      this.login();
+    } else if (this.model.email == kylieEmail && this.model.password == kyliePassword) {
+      this.login();
+    } else {
+      this.showDiv = true;
+      this.router.navigate(['/login']);
+    }
   }
 
 }

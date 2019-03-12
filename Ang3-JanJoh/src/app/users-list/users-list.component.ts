@@ -5,6 +5,9 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.css']
 })
+
+// COMMENT ON FULL CLASS AND WHAT IT DOES. DON'T FORGET.
+
 export class UsersListComponent implements OnInit {
 
   constructor() { }

@@ -1,0 +1,11 @@
+.form-control {
+    width: 214px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 16rem;
+    height: 25rem;
+    flex-flow: column;
+}

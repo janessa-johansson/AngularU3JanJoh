@@ -6,6 +6,9 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './singleuser.component.html',
   styleUrls: ['./singleuser.component.css']
 })
+
+// COMMENT ON FULL CLASS AND WHAT IT DOES. DON'T FORGET.
+
 export class SingleuserComponent implements OnInit {
 
   userId: string;

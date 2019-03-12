@@ -5,6 +5,9 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   templateUrl: './edit-users.component.html',
   styleUrls: ['./edit-users.component.css']
 })
+
+// COMMENT ON FULL CLASS AND WHAT IT DOES. DON'T FORGET.
+
 export class EditUsersComponent implements OnInit {
 
   constructor() { }

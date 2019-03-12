@@ -7,6 +7,10 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
+
+// COMMENT ON FULL CLASS AND WHAT IT DOES. DON'T FORGET.
+
 export class DashboardComponent implements OnInit {
 
   loggedUser: string;
