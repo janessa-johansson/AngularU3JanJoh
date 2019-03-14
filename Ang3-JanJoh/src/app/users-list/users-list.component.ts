@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { UsersService } from '../users.service';
+import { UserFull } from '../user.model';
+
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
@@ -10,13 +13,18 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class UsersListComponent implements OnInit {
 
-  constructor() { }
+  user: UserFull[];
+  constructor(private usersService: UsersService) {
+    
+  }
 
   ngOnInit() {
+
   }
 
   //Input for users string array
-  @Input() users: string[];
+  @Input() users: object[];
+
 
   //A toggle for colors
   myToggle: boolean = true;

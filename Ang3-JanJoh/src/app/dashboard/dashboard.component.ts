@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,26 +18,33 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private usersService: UsersService
   ) {
 
     //Checking and getting loggedUser from Authservice.
     this.loggedUser = authService.checkIfLoggedIn();
 
-    //Defining the userList
-    this.userList = ['Mr. Nice', 'Narco', 'Bomvasto', 'Celeritas ', 'Magenta']
   }
 
   ngOnInit() {
 
+    this.usersService.getUsers()
+      .subscribe(
+        (response) => {
+          this.userList = response;
+        },
+        (error) => console.log("error", error),
+        () => console.log('completed')
+      )
   }
 
-  //Defining userList as a string array
-  userList: string[];
+  //Defining userList as a string array for adding users functionality
+  userList: object[];
 
   //Adding user based on eventEmitter from edit-users-component
   addUser($event: string) {
-    this.userList.unshift($event);
+    // this.userList.unshift($event);
   }
 
   //Deleting a user

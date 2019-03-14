@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-user-list-item',
@@ -10,14 +11,19 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class UserListItemComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private usersService: UsersService) { }
 
   ngOnInit() {
+  
   }
 
+  
   //Input for user and textColor (string)
-  @Input() user: string;
+  @Input() user: object;
   @Input() textColor: string;
+  
+
 
   //Getting user colors
   getColor(): Object {
