@@ -9,7 +9,7 @@ import { UsersService } from '../users.service';
   styleUrls: ['./singleuser.component.css']
 })
 
-// COMMENT ON FULL CLASS AND WHAT IT DOES. DON'T FORGET.
+// Subscribing to params ID and calling json from userService via getUser.
 
 export class SingleuserComponent implements OnInit {
 
@@ -28,11 +28,11 @@ export class SingleuserComponent implements OnInit {
       this.userId = params.id;
     });
 
-
+  // Using getUser() from userService to get json response and assign it to user.
+  // Used to show appropriate inof (zip, username, etc.) on single user component. 
     this.userService.getUser(this.userId).subscribe(
       (response) => {
         this.user = response;
-        console.log(response)
       },
       (error) => console.log("error", error),
       () => console.log('completed')

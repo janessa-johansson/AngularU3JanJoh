@@ -6,10 +6,15 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+
+// Users Service...
+// 1) provides json url
+// 2) has two methods (getUsers and getUser) which gets json url and makes it an observable
+
 export class UsersService {
 
   private usersUrl: string = 'https://jsonplaceholder.typicode.com/users/';
-  
 
   constructor(private http: HttpClient) { }
 

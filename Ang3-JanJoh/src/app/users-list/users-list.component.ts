@@ -9,7 +9,7 @@ import { UserFull } from '../user.model';
   styleUrls: ['./users-list.component.css']
 })
 
-// COMMENT ON FULL CLASS AND WHAT IT DOES. DON'T FORGET.
+// Handles changing color of text, inout for users, and toggle for user text
 
 export class UsersListComponent implements OnInit {
 

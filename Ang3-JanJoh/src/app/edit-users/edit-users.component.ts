@@ -7,7 +7,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   styleUrls: ['./edit-users.component.css']
 })
 
-// COMMENT ON FULL CLASS AND WHAT IT DOES. DON'T FORGET.
+// Handles event emitters for adding new users/deleting existing users.
 
 export class EditUsersComponent implements OnInit {
 

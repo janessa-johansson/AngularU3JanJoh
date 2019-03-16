@@ -10,7 +10,8 @@ import { UsersService } from '../users.service';
 })
 
 
-// COMMENT ON FULL CLASS AND WHAT IT DOES. DON'T FORGET.
+// Handles control of showing appropriate div elements, logging in, deleting users
+// and subscribing to json responses.
 
 export class DashboardComponent implements OnInit {
 
@@ -27,6 +28,7 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  // Subscribes to the response provided from usersService.getUsers().
   ngOnInit() {
 
     this.usersService.getUsers()

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-not-found.component.css']
 })
 
-// COMMENT ON FULL CLASS AND WHAT IT DOES. DON'T FORGET.
+// Component for when a user navigates to a page that doesn't exist.
 
 export class PageNotFoundComponent implements OnInit {
 

@@ -7,7 +7,7 @@ import { UsersService } from '../users.service';
   styleUrls: ['./user-list-item.component.css']
 })
 
-// COMMENT ON FULL CLASS AND WHAT IT DOES. DON'T FORGET.
+// Gets user color, and handles input for user/color
 
 export class UserListItemComponent implements OnInit {
 

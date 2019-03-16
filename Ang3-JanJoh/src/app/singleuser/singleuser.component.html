@@ -1,11 +1,7 @@
 <div>
-  <p class="font-weight-light font-weight-bold">Name: {{ name }}</p>
-
-  <h2>{{ user.username }}</h2>
-  <h2>{{ user.name }}</h2>
-  <h2>{{ user.address.street }}</h2>
-  <h2>{{ user.address.city }}</h2>
-  <h2>{{ user.address.zipcode }}</h2>
-
-  
+  <h3 class="font-weight-light font-weight-bold">Name: {{ user.name }}</h3>
+  <p class="font-weight-light font-weight-bold mb-2">Username: {{ user.username }}</p>
+  <p class="font-weight-light">{{ user.address.street }}</p>
+  <p class="font-weight-light">{{ user.address.city }}</p>
+  <p class="font-weight-light">{{ user.address.zipcode }}</p> 
 </div>
